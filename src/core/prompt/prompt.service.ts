@@ -1,7 +1,7 @@
 import inquirer from 'inquirer';
-import { PromptType } from './prompt.types.js';
+import { IPrompt, PromptType } from './prompt.types.js';
 
-export class PromptService {
+export class PromptService implements IPrompt {
 	async input<T>(message: string, type: PromptType) {
 		const { result } = await inquirer.prompt<{ result: T }>([
 			{

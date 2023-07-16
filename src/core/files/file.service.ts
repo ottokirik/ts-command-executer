@@ -1,5 +1,5 @@
 import { promises } from 'fs';
-import { dirname, isAbsolute, join } from 'path';
+import { dirname, isAbsolute, join, sep } from 'path';
 
 export class FileService {
 	private async isFileExists(path: string): Promise<boolean> {
@@ -18,7 +18,7 @@ export class FileService {
 			normalizedPath = join(__dirname, path);
 		}
 
-		return join(dirname(normalizedPath), name, extension);
+		return join(dirname(normalizedPath), `${sep}${name}.${extension}`);
 	}
 
 	async deleteFileIfExists(path: string): Promise<void> {

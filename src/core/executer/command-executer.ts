@@ -3,7 +3,7 @@ import { IStreamLogger } from '../handlers/stream-logger.interface.js';
 import { ICommandExecuter } from './command-executer.types.js';
 
 export abstract class CommandExecuter<Input> {
-	constructor(private readonly logger: IStreamLogger) {}
+	constructor(protected readonly logger: IStreamLogger) {}
 
 	async execute(): Promise<void> {
 		const input = await this.prompt();
